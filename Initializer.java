@@ -9,7 +9,7 @@ public class Initializer {
     // value degree
     private int degree;
 
-    // constructor with various count of arguments (degrees of polynomial or just value)
+    // constructor with various count of arguments (degrees of polynomial) or just value
     Initializer(int ... coefficients) {
         if (coefficients.length == 1) {
             this.value = coefficients[0];
@@ -21,12 +21,7 @@ public class Initializer {
         }
         setDegreeOfValue();
     }
-/*
-    Initializer(long value) {
-        this.value = value;
-        setDegreeOfValue();
-    }
-*/
+
     public int getDegree(){
         return degree;
     }

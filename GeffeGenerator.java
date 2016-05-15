@@ -12,7 +12,6 @@ public class GeffeGenerator {
     // gammas
     private StringBuffer gamma;
 
-
     public GeffeGenerator(LFSR lfsr1, LFSR lfsr2, LFSR lfsr3) {
         this.lfsr1 = lfsr1;
         this.lfsr2 = lfsr2;
@@ -32,9 +31,8 @@ public class GeffeGenerator {
         return out;
     }
 
-
     public void step(int n) {
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < n + 1; i++){
             step();
         }
     }

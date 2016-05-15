@@ -24,6 +24,8 @@ public class GeffeTest {
         // given output sequence
         String outputSequence = readFile("src/lab3/sequence/var13.txt");
         //String outputSequence = readFile("src/lab3/sequence/var4.txt");
+        int C = 45;
+        int N = 132;
 
         //System.out.println(outputSequence);
 
@@ -36,16 +38,18 @@ public class GeffeTest {
         LFSR lfsr3 = new LFSR(polynomial3);
 
         long t1 = System.nanoTime();
-        System.out.println(lfsr2.getKey(outputSequence));
+        System.out.println(lfsr1.getKey(outputSequence, C, N));
+        System.out.println(lfsr2.getKey(outputSequence, C, N));
+        System.out.println(lfsr3.getKeyOfL3(outputSequence, lfsr1.getOutputSequence(), lfsr2.getOutputSequence()));
         long t2 = System.nanoTime();
+
         System.out.println("Calculation time: " + (t2-t1)/1000000000.0 + "\n");
-        //lfsr1.setInitialState(163315675);
-        //lfsr1.shift(outputSequence.length()+1);
+        //lfsr1.setInitialState(163315675); //correct L1 initial state 1001101110111111111111011011
+        //lfsr1.shift(outputSequence.length());
         //System.out.println(lfsr1.isCorrect(outputSequence));
-        System.out.println();
 
 /*
-        lfsr1.shift(outputSequence.length()+1);
+        lfsr1.shift(outputSequence.length());
         System.out.println(lfsr1.getOutputSequence());
         System.out.println(outputSequence);
         System.out.println(lfsr1.isCorrect(outputSequence));
@@ -54,26 +58,15 @@ public class GeffeTest {
 
 
         GeffeGenerator geffe = new GeffeGenerator(lfsr1, lfsr2, lfsr3);
+
+        geffe.step(outputSequence.length());
+        System.out.println(geffe.getGamma());
+        System.out.println(outputSequence);
         /*
-        geffe.step(outputSequence.length()+1);
         System.out.println(lfsr1.getOutputSequence());
         System.out.println(lfsr2.getOutputSequence());
         System.out.println(lfsr3.getOutputSequence());
-        System.out.println(geffe.getGamma());
-        System.out.println(outputSequence);
 */
 
-        /*
-        Initializer initialState1 = new Initializer(7657);
-        Initializer characteristic1 = new Initializer(30, 6, 4, 1);
-        LFSR lfsr = new LFSR(characteristic1, initialState1);
-        System.out.println(lfsr.getPolynomial());
-        System.out.println(Long.toBinaryString(lfsr.getPolynomial()));
-        System.out.println(lfsr.getOutputSequence());
-        System.out.println(Long.toBinaryString(7657));
-        System.out.println(63 - Long.numberOfLeadingZeros(7657));
-        System.out.println(initialState1.getDegree());
-        System.out.println(characteristic1.getDegree());
-        */
     }
 }
