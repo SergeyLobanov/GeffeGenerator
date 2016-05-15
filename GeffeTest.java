@@ -10,17 +10,6 @@ import static lab1.Entropy.readFile;
 public class GeffeTest {
 
     public static void main(String[] args) throws IOException {
-        //Initializer init = new Initializer(4, 3, 2, 1);
-/*
-        Initializer init = new Initializer(3, 1);
-        LFSR lfsr = new LFSR(init);
-        lfsr.setInitialState(6);
-
-        for (int i = 0; i < 20; i++) {
-            System.out.println("curr " + Long.toBinaryString(lfsr.getCurrentState()) + " sh " + lfsr.shift());
-        }
-        System.out.println(lfsr.getOutputSequence());
-*/
         // given output sequence
         String outputSequence = readFile("src/lab3/sequence/var13.txt");
         //String outputSequence = readFile("src/lab3/sequence/var4.txt");
@@ -68,5 +57,16 @@ public class GeffeTest {
         System.out.println(lfsr3.getOutputSequence());
 */
 
+        //Initializer init = new Initializer(4, 3, 2, 1);
+/*
+        Initializer init = new Initializer(3, 1);
+        LFSR lfsr = new LFSR(init);
+        lfsr.setInitialState(6);
+
+        for (int i = 0; i < 20; i++) {
+            System.out.println("curr " + Long.toBinaryString(lfsr.getCurrentState()) + " sh " + lfsr.shift());
+        }
+        System.out.println(lfsr.getOutputSequence());
+*/
     }
 }
